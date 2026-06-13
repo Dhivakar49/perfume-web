@@ -130,70 +130,10 @@ try {
             </div>
         </div>
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
     </div>
 </section>
 
-<!-- Categories Section -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Shop by Category</h2>
-        <p class="section-subtitle" data-aos="fade-up">Explore our curated collections</p>
-        
-        <div class="row g-4">
-            <?php 
-            if (!empty($categories)) {
-                $gradients = [
-                    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-                    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-                    'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
-                ];
-                
-                foreach ($categories as $index => $category): 
-                    $gradient = $gradients[$index % count($gradients)];
-            ?>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
-                    <a href="products.php?category=<?php echo $category['slug']; ?>" class="category-card">
-                        <div style="width: 100%; height: 100%; background: <?php echo $gradient; ?>; position: absolute; top: 0; left: 0;"></div>
-                        <div class="category-overlay">
-                            <h3 class="category-name"><?php echo htmlspecialchars($category['name']); ?></h3>
-                        </div>
-                    </a>
-                </div>
-            <?php 
-                endforeach;
-            } else {
-                // Default categories if none in database
-                $default_categories = [
-                    ['name' => 'Men Perfumes', 'slug' => 'men-perfumes', 'gradient' => 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'],
-                    ['name' => 'Women Perfumes', 'slug' => 'women-perfumes', 'gradient' => 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'],
-                    ['name' => 'Unisex Perfumes', 'slug' => 'unisex-perfumes', 'gradient' => 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'],
-                    ['name' => 'Luxury Collection', 'slug' => 'luxury-collection', 'gradient' => 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'],
-                    ['name' => 'Gift Sets', 'slug' => 'gift-sets', 'gradient' => 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'],
-                    ['name' => 'Best Sellers', 'slug' => 'best-sellers', 'gradient' => 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'],
-                ];
-                
-                foreach ($default_categories as $index => $category):
-            ?>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
-                    <a href="products.php?category=<?php echo $category['slug']; ?>" class="category-card">
-                        <div style="width: 100%; height: 100%; background: <?php echo $category['gradient']; ?>; position: absolute; top: 0; left: 0;"></div>
-                        <div class="category-overlay">
-                            <h3 class="category-name"><?php echo htmlspecialchars($category['name']); ?></h3>
-                        </div>
-                    </a>
-                </div>
-            <?php 
-                endforeach;
-            }
-            ?>
-        </div>
-    </div>
-</section>
+
 
 <!-- Featured Products -->
 <?php if (!empty($featured_products)): ?>
@@ -310,10 +250,6 @@ const heroSwiper = new Swiper('.hero-swiper', {
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
     },
     effect: 'fade',
     fadeEffect: {

@@ -422,6 +422,8 @@ if (function_exists('isLoggedIn') && isLoggedIn()) {
                                 <li><a class="dropdown-item" href="orders.php"><i class="fas fa-box"></i> My Orders</a></li>
                                 <li><a class="dropdown-item" href="wishlist.php"><i class="fas fa-heart"></i> Wishlist</a></li>
                                 <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="admin/login.php" style="color: #667eea; font-weight: 600;"><i class="fas fa-shield-alt"></i> Admin Panel</a></li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             </ul>
                         </div>
