@@ -1,11 +1,15 @@
 -- =====================================================
 -- PERFUME PALACE - COMPLETE DATABASE SCHEMA
 -- Professional Ecommerce Platform
+-- InfinityFree Compatible Version
 -- =====================================================
-
-DROP DATABASE IF EXISTS perfume_store;
-CREATE DATABASE perfume_store CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE perfume_store;
+-- 
+-- INSTRUCTIONS:
+-- 1. Create database in InfinityFree MySQL panel first
+-- 2. Import this file using phpMyAdmin
+-- 3. This file works with existing databases
+-- 
+-- =====================================================
 
 -- =====================================================
 -- USERS & AUTHENTICATION
@@ -422,13 +426,13 @@ INSERT INTO products (name, slug, sku, description, short_description, category_
 ('Golden Amber', 'golden-amber', 'PERF-009', 'Warm and sensual with amber, vanilla, and tonka bean. A perfect signature scent.', 'Warm amber fragrance', 3, 1, 3799.00, 3299.00, 30, 1, 0, 0, 'active'),
 ('Citrus Splash', 'citrus-splash', 'PERF-010', 'Energizing citrus blend with lemon, orange, and grapefruit. Fresh and invigorating.', 'Energizing citrus blend', 3, 2, 1999.00, 1699.00, 80, 0, 1, 1, 'active');
 
--- Insert Product Images
+-- Insert Product Images (using relative paths compatible with hosting)
 INSERT INTO product_images (product_id, image_path, is_primary, display_order) VALUES
-(1, 'Opal Mist.webp', 1, 1),
-(2, 'Velvet Petal.webp', 1, 1),
-(3, 'Pearl Essence.png', 1, 1),
-(4, 'Eternity Luxe.jpeg', 1, 1),
-(5, 'Luxe Aurora.jpg', 1, 1);
+(1, 'assets/images/products/Opal Mist.webp', 1, 1),
+(2, 'assets/images/products/Velvet Petal.webp', 1, 1),
+(3, 'assets/images/products/Pearl Essence.png', 1, 1),
+(4, 'assets/images/products/Eternity Luxe.jpeg', 1, 1),
+(5, 'assets/images/products/Luxe Aurora.jpg', 1, 1);
 
 -- Insert Admin User (password: admin123)
 INSERT INTO admins (username, email, password, full_name, role, status) VALUES
